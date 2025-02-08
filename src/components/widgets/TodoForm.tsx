@@ -17,7 +17,7 @@ import { type ITodoFormContent } from "@src/models/todos";
 import { TODO_TITLE_MAX_LENGTH } from "@src/utils/constants";
 
 /** STYLED COMPONENTS */
-import StyledTodoForm from "@src/components/styled/StyledTodoForm";
+import StyledTodoForm from "@src/components/styled/todos/StyledTodoForm";
 
 interface TodoFormProps {
   completed: boolean;

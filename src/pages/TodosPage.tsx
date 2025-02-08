@@ -44,7 +44,7 @@ const TodosPage = () => {
   }, [appDispatch, fetchedTodos]);
 
   useEffect(() => {
-    if (itemsToDisplay.length === 0)
+    if (itemsToDisplay.length === 0 && pageCount)
       appDispatch(todosActions.setCurrentPage(pageCount));
   }, [
     appDispatch,

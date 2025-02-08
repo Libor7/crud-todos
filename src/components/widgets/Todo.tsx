@@ -23,9 +23,9 @@ import { MAX_CHARACTERS } from "@src/utils/constants";
 import { getShortenedText } from "@src/utils/util";
 
 /** STYLED COMPONENTS */
-import StyledTodo from "@src/components/styled/StyledTodo";
-import StyledTodoText from "@src/components/styled/StyledTodoText";
-import StyledTodoActions from "@src/components/styled/StyledTodoActions";
+import StyledTodo from "@src/components/styled/todos/StyledTodo";
+import StyledTodoText from "@src/components/styled/todos/StyledTodoText";
+import StyledTodoActions from "@src/components/styled/todos/StyledTodoActions";
 
 interface ITodoProps {
   todo: ITodo;

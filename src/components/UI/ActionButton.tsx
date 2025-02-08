@@ -5,7 +5,7 @@ import { type FC } from "react";
 import { type ActionButtonConfig } from "@src/models/common";
 
 /** STYLED COMPONENTS */
-import StyledActionButton from "@src/components/styled/StyledActionButton";
+import StyledActionButton from "@src/components/styled/actions/StyledActionButton";
 
 interface ActionButtonProps {
   actionButton: Omit<ActionButtonConfig, "displayed">;

@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 
 /** OTHER */
-import { useAppDispatch, type RootState } from "@src/store";
+import { type RootState, useAppDispatch } from "@src/store";
 import { commonActions } from "@src/store/common";
 
 /** STYLED COMPONENTS */

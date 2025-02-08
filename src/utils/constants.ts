@@ -69,6 +69,9 @@ const PAGE_CONTENT = {
       TODO_SUCCESS_UPDATE: "Data successfully changed",
     },
   },
+  TODO: {
+    NON_EXISTING: "Non-existing todo in url. Choose a todo from list, or create a new one.",
+  },
   TODOS: {
     NO_TODOS_FOUND:
       "Currently you don't have any Todos. Create some new, or just relax.",

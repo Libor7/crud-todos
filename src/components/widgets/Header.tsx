@@ -16,7 +16,7 @@ import PAGE_CONTENT, { NAVIGATION_LINKS } from "@src/utils/constants";
 
 /** STYLED COMPONENTS */
 import StyledNavLink from "@src/components/styled/StyledNavLink";
-import StyledTodosBadge from "@src/components/styled/StyledTodosBadge";
+import StyledTodosBadge from "@src/components/styled/todos/StyledTodosBadge";
 import StyledToolbar from "@src/components/styled/StyledToolbar";
 
 const Header = () => {

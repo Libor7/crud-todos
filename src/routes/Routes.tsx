@@ -2,7 +2,6 @@
 import Actions from "@src/components/layouts/Actions";
 import AppLayout from "@src/components/layouts/AppLayout";
 import Error from "@src/pages/ErrorPage";
-import RouteGuard from "@src/components/layouts/RouteGuard";
 
 /** LIBRARIES */
 import { lazy } from "react";
@@ -61,7 +60,6 @@ const router = createBrowserRouter(
             },
             {
               path: Path.TODO_ID,
-              element: <RouteGuard />,
               children: [
                 {
                   index: true,

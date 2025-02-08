@@ -19,10 +19,6 @@ export interface ITodoFormContent {
   INPUT_LABEL: string;
 }
 
-export interface ITodoId {
-  todoId: string;
-}
-
 export interface ITodosLoaderResponse {
   data: ITodo[];
 }
