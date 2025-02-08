@@ -51,7 +51,10 @@ const useActions = (id: string) => {
         displayed: [Mode.READ, Mode.READ_ALL].indexOf(mode) >= 0,
         icon: DeleteIcon,
         onClick: () => {
-          if (mode === Mode.READ) deleteTodo(id!);
+          if (mode === Mode.READ) {
+            deleteTodo(id);
+            navigate(-1);
+          }
 
           if (mode === Mode.READ_ALL) appDispatch(todosActions.setTodos([]));
         },

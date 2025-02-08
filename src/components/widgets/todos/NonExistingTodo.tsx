@@ -2,7 +2,7 @@
 import PAGE_CONTENT from "@src/utils/constants";
 
 /** STYLED COMPONENTS */
-import StyledNonExistingTodo from "../styled/todos/StyledNonExistingTodo";
+import StyledNonExistingTodo from "../../styled/todos/StyledNonExistingTodo";
 
 const NonExistingTodo = () => {
   return (

@@ -16,7 +16,7 @@ const useUpdateHandler = () => {
   const appDispatch = useAppDispatch();
 
   const updateTodoHandler = useCallback(
-    ({ id, userId, ...rest }: UpdateTodoPayload) => {
+    ({ id, userId, ...rest }: UpdateTodoPayload) =>
       updateTodo(id, rest)
         .then(() => {
           appDispatch(
@@ -40,8 +40,7 @@ const useUpdateHandler = () => {
               text: processError(error),
             })
           );
-        });
-    },
+        }),
     [appDispatch]
   );
 

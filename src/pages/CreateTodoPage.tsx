@@ -1,5 +1,5 @@
 /** CUSTOM COMPONENTS */
-import CreateTodoForm from "@src/components/widgets/TodoForm";
+import CreateTodoForm from "@src/components/widgets/todos/TodoForm";
 
 /** HOOKS */
 import useCreateHandler from "@src/hooks/useCreateHandler";

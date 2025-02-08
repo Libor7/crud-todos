@@ -1,5 +1,5 @@
 /** CUSTOM COMPONENTS */
-import EditTodoForm from "@src/components/widgets/TodoForm";
+import EditTodoForm from "@src/components/widgets/todos/TodoForm";
 
 /** HOOKS */
 import useUpdateHandler from "@src/hooks/useUpdateHandler";
@@ -54,7 +54,7 @@ const EditTodoPage = () => {
 
       changeTodo({
         id: id!.toString(),
-        userId: import.meta.env.LOGGED_IN_USER_ID,
+        userId: import.meta.env.VITE_LOGGED_IN_USER_ID,
         completed,
         title,
       });

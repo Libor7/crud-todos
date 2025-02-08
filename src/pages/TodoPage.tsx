@@ -1,50 +1,24 @@
-/** COMPONENTS */
-import Box from "@mui/material/Box";
-import Checkbox from "@mui/material/Checkbox";
-
 /** CUSTOM COMPONENTS */
-import NonExistingTodo from "@src/components/widgets/NonExistingTodo";
-
-/** HOOKS */
-import useUpdateHandler from "@src/hooks/useUpdateHandler";
+import ExistingTodo from "@src/components/widgets/todos/ExistingTodo";
+import NonExistingTodo from "@src/components/widgets/todos/NonExistingTodo";
 
 /** LIBRARIES */
-import { useLoaderData } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
-/** MODELS */
-import { type ITodo } from "@src/models/todos";
-
-/** STYLED COMPONENTS */
-import StyledTodoPage from "@src/components/styled/todos/StyledTodoPage";
+/** OTHER */
+import { type RootState } from "@src/store";
 
 const TodoPage = () => {
-  const { foundTodo: todo } = useLoaderData() as {
-    foundTodo: ITodo | undefined;
-  };
-  const { changeTodo } = useUpdateHandler();
+  const { id } = useParams() as { id: string };
 
-  return (
-    <>
-      {!todo && <NonExistingTodo />}
-      {todo && (
-        <StyledTodoPage completed={todo.completed ? 1 : 0}>
-          <p>{todo.title}</p>
-          <Box>
-            <Checkbox
-              checked={todo.completed}
-              onChange={() =>
-                changeTodo({
-                  id: todo.id,
-                  userId: import.meta.env.LOGGED_IN_USER_ID,
-                  completed: !todo.completed,
-                })
-              }
-            />
-          </Box>
-        </StyledTodoPage>
-      )}
-    </>
+  const todo = useSelector(({ todos }: RootState) =>
+    todos.todos.find((todo) => todo.id.toString() === id)
   );
+
+  if (!todo) return <NonExistingTodo />;
+
+  return <ExistingTodo todo={todo} />;
 };
 
 export default TodoPage;

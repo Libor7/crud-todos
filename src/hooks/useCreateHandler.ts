@@ -26,7 +26,7 @@ const useCreateHandler = () => {
             todosActions.addTodo({
               ...(data as ITodo),
               id: uniqueId,
-              userId: import.meta.env.LOGGED_IN_USER_ID,
+              userId: import.meta.env.VITE_LOGGED_IN_USER_ID,
             })
           );
           appDispatch(

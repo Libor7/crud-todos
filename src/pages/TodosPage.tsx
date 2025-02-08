@@ -1,6 +1,6 @@
 /** CUSTOM COMPONENTS */
-import NoTodosFound from "@src/components/widgets/NoTodosFound";
-import Todo from "@src/components/widgets/Todo";
+import NoTodosFound from "@src/components/widgets/todos/NoTodosFound";
+import Todo from "@src/components/widgets/todos/Todo";
 
 /** HOOKS */
 import usePagination from "@src/hooks/usePagination";

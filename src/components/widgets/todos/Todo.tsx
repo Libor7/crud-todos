@@ -52,7 +52,7 @@ const Todo: FC<ITodoProps> = ({ todo: { completed, id, title } }) => {
           onChange={() =>
             changeTodo({
               id: id.toString(),
-              userId: import.meta.env.LOGGED_IN_USER_ID,
+              userId: import.meta.env.VITE_LOGGED_IN_USER_ID,
               completed: !completed,
             })
           }
