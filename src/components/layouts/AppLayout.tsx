@@ -19,6 +19,7 @@ const AppLayout = () => {
   const {
     alert: { colorMode, text },
   } = useSelector(({ common }: RootState) => common);
+  const { todos } = useSelector(({ todos }: RootState) => todos);
 
   const closeAlertHandler = useCallback(
     () =>
@@ -34,7 +35,7 @@ const AppLayout = () => {
   return (
     <>
       <Header />
-      <StyledMain>
+      <StyledMain todosCount={todos.length}>
         <Outlet />
       </StyledMain>
       {text && (
