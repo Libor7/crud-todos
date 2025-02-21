@@ -6,7 +6,6 @@ import useCreateHandler from "@src/hooks/useCreateHandler";
 
 /** LIBRARIES */
 import { type ChangeEvent, type FormEvent, useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 /** OTHER */
 import PAGE_CONTENT from "@src/utils/constants";
@@ -16,7 +15,6 @@ const {
 } = PAGE_CONTENT;
 
 const CreateTodoPage = () => {
-  const navigate = useNavigate();
   const { createTodo } = useCreateHandler();
   const [title, setTitle] = useState("");
   const [completed, setCompleted] = useState(false);
@@ -37,9 +35,8 @@ const CreateTodoPage = () => {
       event.preventDefault();
 
       createTodo({ completed, title });
-      navigate("..");
     },
-    [completed, createTodo, navigate, title]
+    [completed, createTodo, title]
   );
 
   return (

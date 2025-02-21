@@ -22,8 +22,8 @@ import { todosActions } from "@src/store/todos";
 const useActions = (id: string) => {
   const navigate = useNavigate();
   const appDispatch = useAppDispatch();
-  const { deleteTodo } = useDeleteHandler();
-  const { mode } = useSelector(({ todos }: RootState) => todos);
+  const { deleteTodo } = useDeleteHandler(true);
+  const { mode, todos } = useSelector(({ todos }: RootState) => todos);
 
   const actionButtonsConfig: ActionButtonConfig[] = useMemo(
     () => [
@@ -48,19 +48,17 @@ const useActions = (id: string) => {
       },
       {
         color: "warning",
-        displayed: [Mode.READ, Mode.READ_ALL].indexOf(mode) >= 0,
+        displayed:
+          [Mode.READ, Mode.READ_ALL].indexOf(mode) >= 0 && todos.length > 0,
         icon: DeleteIcon,
         onClick: () => {
-          if (mode === Mode.READ) {
-            deleteTodo(id);
-            navigate(-1);
-          }
+          if (mode === Mode.READ) deleteTodo(id);
 
           if (mode === Mode.READ_ALL) appDispatch(todosActions.setTodos([]));
         },
       },
     ],
-    [appDispatch, deleteTodo, id, mode, navigate]
+    [appDispatch, deleteTodo, id, mode, navigate, todos.length]
   );
 
   return actionButtonsConfig;

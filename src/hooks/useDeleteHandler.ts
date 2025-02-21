@@ -1,5 +1,6 @@
 /** LIBRARIES */
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 /** OTHER */
 import { deleteTodo } from "@src/services/todosAPI";
@@ -9,8 +10,9 @@ import { todosActions } from "@src/store/todos";
 import PAGE_CONTENT from "@src/utils/constants";
 import { processError } from "@src/utils/util";
 
-const useDeleteHandler = () => {
+const useDeleteHandler = (navigateAway = false) => {
   const appDispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const deleteTodoHandler = useCallback(
     (id: string) =>
@@ -23,6 +25,7 @@ const useDeleteHandler = () => {
               text: PAGE_CONTENT.SHARED.MESSAGE.TODO_SUCCESS_DELETE,
             })
           );
+          if (navigateAway) navigate(-1);
         })
         .catch((error) => {
           appDispatch(
@@ -32,7 +35,7 @@ const useDeleteHandler = () => {
             })
           );
         }),
-    [appDispatch]
+    [appDispatch, navigate, navigateAway]
   );
 
   return {

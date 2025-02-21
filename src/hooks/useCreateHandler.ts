@@ -1,5 +1,6 @@
 /** LIBRARIES */
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 /** MODELS */
 import { type RequiredTodoProperties, type ITodo } from "@src/models/todos";
@@ -14,6 +15,7 @@ import { processError } from "@src/utils/util";
 
 const useCreateHandler = () => {
   const appDispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const createTodoHandler = useCallback(
     ({ completed, title }: Omit<ITodo, RequiredTodoProperties>) =>
@@ -35,6 +37,7 @@ const useCreateHandler = () => {
               text: PAGE_CONTENT.SHARED.MESSAGE.TODO_SUCCESS_CREATE,
             })
           );
+          navigate("..");
         })
         .catch((error) => {
           appDispatch(
@@ -44,7 +47,7 @@ const useCreateHandler = () => {
             })
           );
         }),
-    [appDispatch]
+    [appDispatch, navigate]
   );
 
   return {
